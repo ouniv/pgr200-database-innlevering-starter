@@ -59,4 +59,13 @@ Dere skal også gi tilbakemelding på en annen gruppes besvarelse. Tilbakemeldin
     - [ ] De som ikke har en partner innen 16. oktober blir tildelt en annen
 - [ ] Finn en gruppe for gjensidig evaluering innen 23. oktober
 
+## Innlevering
 
+1. Husk å endre README.md-fila. Her skal dere skrive hvordan man tester ut serveren. Dere kan også skrive en vurdering av deres eget resultat. Husk å skrive hvem dere begge er slik at vi ser hvem som har levert sammen.
+2. Tag repositoriet med "innlevering" for å markere den committen dere vil leverer inn på. Dere kan jobbe videre dersom dere vil utforske oppgaven videre, men dere vil få tilbakemelding på "innlevering"-taggen. Her er git kommandoene:
+  * git tag innlevering
+  * git push --tags
+3. Dere vil nå se taggen repository på github.com ved å trykke på "1 Release" (rett ved siden av antall commits etc). Her vil det være en link for zip-fil. Denne kan dere laste opp i Wiseflow.
+4. Det er fint om du legger til veilederne hakonschutt og mudasar187 som collaborators under Settings > Collaborators på github.com, så sparer dere oss for tid.
+
+Det er zip-fila som er den offisielle innleveringen, men dere vil få praktisk tilbakemelding via github.
