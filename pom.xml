@@ -4,9 +4,32 @@
   <artifactId>database-innlevering-starter</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>PGR200 Databaseinnlevering</name>
-  
+
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+          <postgresql.version>42.2.5</postgresql.version>
+  <flyway.version>5.0.6</flyway.version>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <maven.compiler.source>1.8</maven.compiler.source>
+  <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
-  
+
+  <dependencies>
+    <dependency>
+      <groupId>org.flywaydb</groupId>
+      <artifactId>flyway-core</artifactId>
+      <version>${flyway.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>${postgresql.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
 </project>
