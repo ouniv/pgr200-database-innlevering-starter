@@ -1,23 +1,30 @@
 package no.kristiania.pgr200.database;
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.UUID;
 
 public class DatabaseMain {
 
-    public static void main(String[] args) {
-        try {
-            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?user=postgres&password=1234Lolz");
-            Statement statement = conn.createStatement();
-            statement.execute("CREATE TABLE IF NOT EXISTS brukere " +
-                                "(name TEXT, phone INTEGER, email TEXT)");
+    private ConferenceDao dao;
 
-        } catch(SQLException e) {
-            System.out.println("Noe gikk galt " + e.getMessage());
+    public DatabaseMain() throws SQLException {
 
-        }
+        this.dao = new ConferenceDao();
+        this.dao.CreateTableifNotExists();
+
+    }
+    public static void main(String[] args) throws SQLException {
+        new DatabaseMain();
+    }
+
+    private void InsertTalk() throws SQLException {
+        dao.InsertTalk("A new talk called" + UUID.randomUUID(), "This is a very nice description");
+
+    }
+
+    private void ListAll() throws SQLException {
+        dao.ListAll();
+
     }
 }
