@@ -20,14 +20,7 @@ public class ConferenceDao {
         }
     }
 
-    public void InsertTalk() throws SQLException {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter the conference title: ");
-        String title = scanner.nextLine();
-
-        System.out.print("Enter the conference description: ");
-        String description = scanner.nextLine();
+    public void InsertTalk(String title, String description) throws SQLException {
 
 
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD)) {
@@ -55,7 +48,7 @@ public class ConferenceDao {
 //            for (int i = 1; i <= metaData.getColumnCount(); i++) {
 //                System.out.println(metaData.getColumnName(i));
 //            }
-            System.out.println("List of tables: ");
+            System.out.println("Information of talks: ");
             while(resultSet.next()) {
                 System.out.println(
                         "       " + resultSet.getString("title")

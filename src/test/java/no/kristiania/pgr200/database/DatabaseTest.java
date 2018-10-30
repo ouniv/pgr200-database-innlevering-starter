@@ -14,7 +14,7 @@ public class DatabaseTest {
         ConferenceDao dao = new ConferenceDao();
         dao.CreateTableifNotExists();
         dao.CreateTableifNotExists();
-        dao.InsertTalk();
+        dao.InsertTalk("A random talk", "with a random description" );
 
     }
     @Test

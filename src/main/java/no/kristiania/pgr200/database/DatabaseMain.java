@@ -27,8 +27,8 @@ public class DatabaseMain {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the conference database program!\n");
-        System.out.println("type in ´insert´, ´list´ or ´clear´ to work the program\n ");
-        System.out.printf("type in 'exit´ to stop the program\n ");
+        System.out.println("type in 'insert', 'list' or 'clear' to work the program\n ");
+        System.out.println("type in 'exit' to stop the program\n ");
         String command = scanner.nextLine();
 
 
@@ -58,7 +58,13 @@ public class DatabaseMain {
     }
 
     private void insertTalk() throws SQLException {
-        dao.InsertTalk();
+        Scanner scanner = new Scanner(System.in);
+        String command = scanner.nextLine();
+        int endOfTitle = command.indexOf(",");
+        String title = command.substring(endOfTitle-1);
+        String description = command.substring(endOfTitle+1);
+        dao.InsertTalk(title, description);
+
  }
 
     private void listAll() throws SQLException {
