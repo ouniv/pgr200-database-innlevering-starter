@@ -14,24 +14,28 @@ public class DatabaseTest {
         ConferenceDao dao = new ConferenceDao();
         dao.CreateTableifNotExists();
         dao.CreateTableifNotExists();
-        dao.InsertTalk("My ssdf Title", "A longer description of the talk");
+        dao.InsertTalk();
 
     }
     @Test
     public void shouldListAllTables() throws SQLException {
         ConferenceDao dao = new ConferenceDao();
         dao.ListAll();
-
-    }
-
-    @Test
-    public void shouldClearDatabase() {
         Flyway flyway = new Flyway();
         flyway.setDataSource("jdbc:postgresql://localhost:5432/postgres", "postgres", "1234Lolz");
         flyway.clean();
-        flyway.migrate();
+        //       flyway.migrate();
 
     }
+
+//    @Test
+//    public void shouldClearDatabase() {
+//        Flyway flyway = new Flyway();
+//        flyway.setDataSource("jdbc:postgresql://localhost:5432/postgres", "postgres", "1234Lolz");
+//        flyway.clean();
+//        flyway.migrate();
+//
+//    }
 
 
 }

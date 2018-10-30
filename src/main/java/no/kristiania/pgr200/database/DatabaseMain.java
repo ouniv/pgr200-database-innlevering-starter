@@ -4,11 +4,14 @@ package no.kristiania.pgr200.database;
 import org.flywaydb.core.Flyway;
 
 import java.sql.*;
+import java.util.Scanner;
+import java.util.UUID;
 
 
 public class DatabaseMain {
 
     private ConferenceDao dao;
+
 
     public DatabaseMain() throws SQLException {
 
@@ -22,27 +25,31 @@ public class DatabaseMain {
 
     public void run(String[] args) throws SQLException {
 
+//        Scanner scanner = new Scanner(System.in);
+////
+////        String input = scanner.nextLine();
+////
+////        String title = input.substring(1, 2);
+////        String description = input.substring(2, 3);
 
         if(args.length == 0) {
             System.out.println("Run boy xD");
-            listAll();
             System.exit(1);
         }
 
         String command = args[0];
 
-        if(command.equals("insert")) {
+
+
+        if(command.equalsIgnoreCase("insert")) {
             insertTalk();
             System.out.println("Nice command");
-        } else {
-            System.err.println("Unknown command!");
         }
-        if(command.equals("list")) {
+
+        else if(command.equalsIgnoreCase("list")) {
             listAll();
-        } else {
-            System.err.println("Unknown command!");
         }
-        if(command.equals("clear")) {
+        else if(command.equalsIgnoreCase("clear")) {
             clearAll();
         } else {
             System.err.println("Unknown command!");
@@ -50,9 +57,8 @@ public class DatabaseMain {
     }
 
     private void insertTalk() throws SQLException {
-        dao.InsertTalk("A new talk called", "This is a very nice description");
-
-    }
+        dao.InsertTalk();
+ }
 
     private void listAll() throws SQLException {
 
@@ -60,6 +66,8 @@ public class DatabaseMain {
 
     }
     private void clearAll() {
+
         dao.clearDatabase();
     }
+
 }
