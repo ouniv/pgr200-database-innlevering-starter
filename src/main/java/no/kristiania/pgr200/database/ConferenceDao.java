@@ -17,7 +17,6 @@ public class ConferenceDao {
             Statement statement = conn.createStatement();
             statement.execute("CREATE TABLE IF NOT EXISTS CONFERENCE_TALK " +
                     "(Title varchar primary key, DESCRIPTION text)");
-
         }
     }
 
@@ -27,7 +26,7 @@ public class ConferenceDao {
         System.out.print("Enter the conference title: ");
         String title = scanner.nextLine();
 
-        System.out.print("Enter your first name: ");
+        System.out.print("Enter the conference description: ");
         String description = scanner.nextLine();
 
 
