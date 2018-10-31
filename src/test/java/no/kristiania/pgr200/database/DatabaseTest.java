@@ -3,6 +3,7 @@ package no.kristiania.pgr200.database;
 import org.flywaydb.core.Flyway;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 
@@ -10,7 +11,7 @@ public class DatabaseTest {
 
 
     @Test
-    public void shouldInsertConferenceTalks() throws SQLException {
+    public void shouldInsertConferenceTalks() throws SQLException, IOException {
         ConferenceDao dao = new ConferenceDao();
         dao.CreateTableifNotExists();
         dao.CreateTableifNotExists();
@@ -18,7 +19,7 @@ public class DatabaseTest {
 
     }
     @Test
-    public void shouldListAllTables() throws SQLException {
+    public void shouldListAllTables() throws SQLException, IOException {
         ConferenceDao dao = new ConferenceDao();
         dao.ListAll();
         Flyway flyway = new Flyway();
