@@ -41,6 +41,9 @@ public class DatabaseMain {
 
         Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
+        /*Flyway flyway = new Flyway();
+         flyway.setDataSource(DB_URL, DB_USER, DB_PASS);
+         flyway.migrate();*/
 
         return conn;
     }
@@ -52,16 +55,6 @@ public class DatabaseMain {
         System.out.println("type in 'insert', 'list' or 'clear' to work the program");
         System.out.println("type in 'exit' to stop the program");
         String command = scanner.nextLine();
-
-
-//
-//        if(args.length == 0) {
-//            System.out.println("Run boy xD");
-//            System.exit(1);
-//        }
-//
-//        String command = args[0];
-//
 
 
         if(command.equalsIgnoreCase("insert")) {
@@ -95,23 +88,15 @@ public class DatabaseMain {
         String room = scanner.nextLine();
         System.out.println("Enter the date of the seminar, press enter to skip");
         String date = scanner.nextLine();
-        dao.InsertTalk(title, desc, timeslot, room, date);
+        dao.daoInsertTalk(title, desc, timeslot, room, date);
 
 
     }
-    /*private void insertTalk() throws SQLException, IOException {
-        Scanner scanner = new Scanner(System.in);
-        String command = scanner.nextLine();
-        int endOfTitle = command.indexOf(",");
-        String title = command.substring(endOfTitle-1);
-        String description = command.substring(endOfTitle+1);
-        dao.InsertTalk(title, description);*/
-
 
 
     private void listAll() throws SQLException, IOException {
 
-        dao.ListAll();
+        dao.daoListAll();
 
     }
     /*private void clearAll() throws IOException {

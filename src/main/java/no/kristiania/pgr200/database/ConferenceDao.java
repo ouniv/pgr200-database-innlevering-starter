@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
-import java.util.Scanner;
 
 public class ConferenceDao {
 
@@ -24,7 +23,7 @@ public class ConferenceDao {
         }
     }
 
-    public void InsertTalk(String title, String description, String timeslot, String room, String date) throws SQLException, IOException {
+    public void daoInsertTalk(String title, String description, String timeslot, String room, String date) throws SQLException, IOException {
 
 
         try (Connection conn = DatabaseMain.connection()) {
@@ -43,7 +42,7 @@ public class ConferenceDao {
 
     }
 
-    public void ListAll() throws SQLException, IOException {
+    public void daoListAll() throws SQLException, IOException {
         try (Connection conn = DatabaseMain.connection()) {
 
 
@@ -51,10 +50,7 @@ public class ConferenceDao {
             PreparedStatement statement = conn.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
 
-//            ResultSetMetaData metaData = resultSet.getMetaData();
-//            for (int i = 1; i <= metaData.getColumnCount(); i++) {
-//                System.out.println(metaData.getColumnName(i));
-//            }
+
             System.out.println("Information of talks: ");
             while(resultSet.next()) {
                 System.out.println(
