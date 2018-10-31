@@ -1,7 +1,7 @@
 package no.kristiania.pgr200.database;
 
 
-import org.flywaydb.core.Flyway;
+//import org.flywaydb.core.Flyway;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -65,7 +65,7 @@ public class DatabaseMain {
 
 
         if(command.equalsIgnoreCase("insert")) {
-            System.out.println("type in the name and title separated with a ','");
+            System.out.println("Enter the name of the seminar");
             insertTalk();
             System.out.println("You have successfully added a conference!");
         }
@@ -73,9 +73,9 @@ public class DatabaseMain {
         else if(command.equalsIgnoreCase("list")) {
             listAll();
         }
-        else if(command.equalsIgnoreCase("clear")) {
+        /*else if(command.equalsIgnoreCase("clear")) {
             clearAll();
-        }
+        }*/
         else if(command.equalsIgnoreCase("exit")) {
                 System.exit(0);
         } else {
@@ -86,12 +86,17 @@ public class DatabaseMain {
 
     private void insertTalk() throws SQLException, IOException {
         Scanner scanner = new Scanner(System.in);
-        String command = scanner.nextLine();
-        String[] getData = command.split(",", 2);
-        String title = getData[0];
-        String desc = getData[1];
+        String title = scanner.nextLine();
+        System.out.println("Enter a description for the seminar, press enter to skip");
+        String desc = scanner.nextLine();
+        System.out.println("Enter the timeslot for the seminar, press enter to skip");
+        String timeslot = scanner.nextLine();
+        System.out.println("In what room is the seminar held? press enter to skip");
+        String room = scanner.nextLine();
+        System.out.println("Enter the date of the seminar, press enter to skip");
+        String date = scanner.nextLine();
+        dao.InsertTalk(title, desc, timeslot, room, date);
 
-        dao.InsertTalk(title, desc);
 
     }
     /*private void insertTalk() throws SQLException, IOException {
@@ -109,9 +114,9 @@ public class DatabaseMain {
         dao.ListAll();
 
     }
-    private void clearAll() throws IOException {
+    /*private void clearAll() throws IOException {
 
         dao.clearDatabase();
-    }
+    }*/
 
 }
