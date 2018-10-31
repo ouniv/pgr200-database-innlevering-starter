@@ -7,7 +7,7 @@
 
   <properties>
           <postgresql.version>42.2.5</postgresql.version>
-  <flyway.version>5.0.6</flyway.version>
+  <flyway.version>5.2.1</flyway.version>
   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   <maven.compiler.source>1.8</maven.compiler.source>
   <maven.compiler.target>1.8</maven.compiler.target>
@@ -16,8 +16,8 @@
   <dependencies>
     <dependency>
       <groupId>org.flywaydb</groupId>
-      <artifactId>flyway-core</artifactId>
-      <version>${flyway.version}</version>
+      <artifactId>flyway-maven-plugin</artifactId>
+      <version>5.2.1</version>
     </dependency>
     <dependency>
       <groupId>org.postgresql</groupId>
