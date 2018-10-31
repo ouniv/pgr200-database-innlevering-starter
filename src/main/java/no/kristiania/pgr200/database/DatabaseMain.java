@@ -41,6 +41,7 @@ public class DatabaseMain {
 
         Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
+
         return conn;
     }
 
@@ -101,7 +102,7 @@ public class DatabaseMain {
         String description = command.substring(endOfTitle+1);
         dao.InsertTalk(title, description);*/
 
- }
+
 
     private void listAll() throws SQLException, IOException {
 

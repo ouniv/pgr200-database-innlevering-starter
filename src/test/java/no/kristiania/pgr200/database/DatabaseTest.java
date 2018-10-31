@@ -13,8 +13,8 @@ public class DatabaseTest {
     @Test
     public void shouldInsertConferenceTalks() throws SQLException, IOException {
         ConferenceDao dao = new ConferenceDao();
-        dao.CreateTableifNotExists();
-        dao.CreateTableifNotExists();
+        dao.CreateTableIfNotExists();
+        dao.CreateTableIfNotExists();
         dao.InsertTalk("A random talk", "with a random description" );
 
     }
