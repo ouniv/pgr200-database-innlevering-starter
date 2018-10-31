@@ -1,6 +1,5 @@
 package no.kristiania.pgr200.database;
 
-//import org.flywaydb.core.Flyway;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.io.IOException;

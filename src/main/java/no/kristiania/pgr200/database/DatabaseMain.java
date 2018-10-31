@@ -1,7 +1,7 @@
 package no.kristiania.pgr200.database;
 
 
-//import org.flywaydb.core.Flyway;
+import org.flywaydb.core.Flyway;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -41,9 +41,9 @@ public class DatabaseMain {
 
         Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
-        /*Flyway flyway = new Flyway();
+        Flyway flyway = new Flyway();
          flyway.setDataSource(DB_URL, DB_USER, DB_PASS);
-         flyway.migrate();*/
+         flyway.migrate();
 
         return conn;
     }
@@ -66,9 +66,9 @@ public class DatabaseMain {
         else if(command.equalsIgnoreCase("list")) {
             listAll();
         }
-        /*else if(command.equalsIgnoreCase("clear")) {
+        else if(command.equalsIgnoreCase("clear")) {
             clearAll();
-        }*/
+        }
         else if(command.equalsIgnoreCase("exit")) {
                 System.exit(0);
         } else {
@@ -99,9 +99,9 @@ public class DatabaseMain {
         dao.daoListAll();
 
     }
-    /*private void clearAll() throws IOException {
+    private void clearAll() throws IOException {
 
         dao.clearDatabase();
-    }*/
+    }
 
 }
