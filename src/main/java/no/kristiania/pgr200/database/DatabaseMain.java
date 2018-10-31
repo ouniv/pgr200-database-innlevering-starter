@@ -20,7 +20,7 @@ public class DatabaseMain {
     public DatabaseMain() throws SQLException, IOException {
 
         this.dao = new ConferenceDao();
-        this.dao.CreateTableifNotExists();
+        this.dao.CreateTableIfNotExists();
 
     }
     public static void main(String[] args) throws SQLException, IOException {
@@ -82,13 +82,24 @@ public class DatabaseMain {
         }
     }
 
+
     private void insertTalk() throws SQLException, IOException {
+        Scanner scanner = new Scanner(System.in);
+        String command = scanner.nextLine();
+        String[] getData = command.split(",", 2);
+        String title = getData[0];
+        String desc = getData[1];
+
+        dao.InsertTalk(title, desc);
+
+    }
+    /*private void insertTalk() throws SQLException, IOException {
         Scanner scanner = new Scanner(System.in);
         String command = scanner.nextLine();
         int endOfTitle = command.indexOf(",");
         String title = command.substring(endOfTitle-1);
         String description = command.substring(endOfTitle+1);
-        dao.InsertTalk(title, description);
+        dao.InsertTalk(title, description);*/
 
  }
 
