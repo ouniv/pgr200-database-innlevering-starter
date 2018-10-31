@@ -8,12 +8,12 @@ import java.util.Scanner;
 
 public class ConferenceDao {
 
-    public final static String DB_URL = "jdbc:postgresql://localhost:5432/";
+    public final static String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
     public final static String DB_USER = "postgres";
-    public final static String DB_PASS = "1234Lolz";
+    public final static String DB_PASS = "ina";
 
 
-    public void CreateTableifNotExists() throws SQLException, IOException {
+    public void CreateTableIfNotExists() throws SQLException, IOException {
         try (Connection conn = DatabaseMain.connection()) {
             Statement statement = conn.createStatement();
             statement.execute("CREATE TABLE IF NOT EXISTS CONFERENCE_TALK " +
